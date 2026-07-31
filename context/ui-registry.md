@@ -18,4 +18,97 @@ After building any component — update this file with the component name, file 
 
 ## Components
 
-_Empty. Components will be added here as they are built._
+### Homepage hero
+
+File: components/homepage/Hero.tsx
+Last updated: 2026-07-30
+
+| Property | Class |
+| --- | --- |
+| Background | `soft-hero`, `bg-surface-tertiary` |
+| Border | `border border-border`, `border-t border-border` |
+| Border radius | none — the reference uses square page sections |
+| Text — primary | `text-text-slate`, `text-text-primary` |
+| Text — secondary | `text-text-secondary` |
+| Spacing | `px-6 py-22`, `px-5 py-16`, `mt-7`, `mt-8` |
+| Hover state | `hover:opacity-90`, `hover:bg-surface-secondary` |
+| Shadow | token-derived dashboard image drop shadow |
+| Accent usage | `text-accent`, `bg-overlay` CTA |
+
+**Pattern notes:** Editorial landing sections use a token-based soft background and square divisions; hero CTA pairs a dark primary button with a white bordered secondary button.
+
+### Homepage feature spotlight
+
+File: components/homepage/FeatureSpotlight.tsx
+Last updated: 2026-07-30
+
+| Property | Class |
+| --- | --- |
+| Background | `bg-surface`, `bg-surface-tertiary` |
+| Border | `border-x border-border`, `divide-y divide-border` |
+| Border radius | none |
+| Text — primary | `text-text-slate` |
+| Text — secondary | `text-text-secondary` |
+| Spacing | `p-8 sm:p-16`, `p-7 sm:p-12` |
+| Hover state | none |
+| Shadow | none |
+| Accent usage | `border-l-2 border-accent`, `border-l-2 border-success` |
+
+**Pattern notes:** Split feature areas pair a white editorial panel with a `bg-surface-tertiary` asset panel. The first detail item carries the section’s two-pixel token-colored left rule.
+
+### Homepage testimonial
+
+File: components/homepage/Testimonial.tsx
+Last updated: 2026-07-30
+
+| Property | Class |
+| --- | --- |
+| Background | `bg-surface` inherited |
+| Border | none |
+| Border radius | `rounded-lg` avatar |
+| Text — primary | `text-text-slate`, `text-text-black` |
+| Text — secondary | `text-text-secondary` |
+| Spacing | `px-6 py-24 sm:py-32`, `mt-8` |
+| Hover state | none |
+| Shadow | none |
+| Accent usage | `text-accent` label |
+
+**Pattern notes:** Testimonial sections are centered, with an all-caps accent eyebrow and a compact image/name attribution.
+
+### Homepage closing CTA
+
+File: components/homepage/FinalCta.tsx
+Last updated: 2026-07-30
+
+| Property | Class |
+| --- | --- |
+| Background | `soft-hero` |
+| Border | `border-y border-border`, `border border-border` |
+| Border radius | `rounded-md` buttons |
+| Text — primary | `text-text-slate`, `text-text-primary` |
+| Text — secondary | `text-text-dark` |
+| Spacing | `px-6 py-20 sm:py-24`, `mt-8` |
+| Hover state | `hover:opacity-90`, `hover:bg-surface-secondary` |
+| Shadow | none |
+| Accent usage | `bg-overlay` primary CTA |
+
+**Pattern notes:** The closing CTA repeats the hero action pair and is framed by token-based diagonal divider bands.
+
+### Site navigation and footer
+
+Files: components/layout/Navbar.tsx, components/layout/Footer.tsx
+Last updated: 2026-07-30
+
+| Property | Class |
+| --- | --- |
+| Background | `bg-surface` |
+| Border | `border-b border-border`, `border-t border-border` |
+| Border radius | `rounded-md` primary CTA |
+| Text — primary | `text-text-dark`, `text-accent-foreground` |
+| Text — secondary | none |
+| Spacing | `h-16 px-6`, `px-6 py-12`, `gap-8` |
+| Hover state | `hover:text-accent`, `hover:opacity-90` |
+| Shadow | none |
+| Accent usage | `hover:text-accent` |
+
+**Pattern notes:** Site chrome uses a full-width white surface, token border, `max-w-[1440px]` centered content, and 24px horizontal padding.

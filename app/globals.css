@@ -85,3 +85,21 @@
     font-family: var(--font-sans);
   }
 }
+
+@utility soft-hero {
+  background:
+    radial-gradient(circle at 50% 4%, color-mix(in srgb, var(--color-info) 24%, transparent), transparent 35%),
+    radial-gradient(circle at 26% 72%, color-mix(in srgb, var(--color-accent-light) 85%, transparent), transparent 38%),
+    radial-gradient(circle at 78% 72%, color-mix(in srgb, var(--color-accent-light) 70%, transparent), transparent 38%),
+    var(--color-surface);
+}
+
+@utility diagonal-rule {
+  background-image: repeating-linear-gradient(
+    120deg,
+    transparent 0,
+    transparent 5px,
+    color-mix(in srgb, var(--color-border) 55%, transparent) 5px,
+    color-mix(in srgb, var(--color-border) 55%, transparent) 6px
+  );
+}
