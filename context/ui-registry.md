@@ -122,12 +122,31 @@ Last updated: 2026-08-14
 | --- | --- |
 | Background | `bg-background`, `bg-surface` |
 | Border | `border border-border` |
-| Border radius | none — authentication panels retain the editorial square silhouette |
+| Border radius | `rounded-lg` |
 | Text — primary | `text-text-slate`, `text-text-primary` |
 | Text — secondary | `text-text-secondary` |
-| Spacing | `px-6 py-12`, `p-8 sm:p-10`, `mt-8`, `space-y-3` |
+| Spacing | `px-6 py-12`, `p-6 sm:p-8`, `mt-8`, `space-y-3` |
 | Hover state | `hover:bg-surface-secondary`, `disabled:opacity-60` |
-| Shadow | token-derived `shadow-[0_18px_23px_color-mix(in_srgb,var(--color-text-primary)_8%,transparent)]` |
+| Shadow | `shadow-sm` |
 | Accent usage | `text-accent` eyebrow |
 
-**Pattern notes:** Authentication uses a centered, square white panel on the page background. Provider actions are full-width outlined buttons with token-colored iconography and a subtle secondary-surface hover state.
+**Pattern notes:** Authentication uses a centered white card on the page background. Provider actions are full-width outlined buttons with token-colored iconography and a subtle secondary-surface hover state.
+
+### Authenticated dashboard landing
+
+File: app/dashboard/page.tsx
+Last updated: 2026-08-14
+
+| Property | Class |
+| --- | --- |
+| Background | `bg-background`, `bg-surface` |
+| Border | `border border-border` |
+| Border radius | `rounded-lg` |
+| Text — primary | `text-text-slate` |
+| Text — secondary | `text-text-secondary` |
+| Spacing | `px-6 py-12`, `p-6 sm:p-8` |
+| Hover state | none |
+| Shadow | `shadow-sm` |
+| Accent usage | `text-accent` eyebrow |
+
+**Pattern notes:** Until the full dashboard arrives in Feature 14, the protected landing destination uses the standard card treatment and routes the newly authenticated user toward profile completion.

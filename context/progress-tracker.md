@@ -53,6 +53,7 @@ Update this file after every completed feature. Any AI agent reading this should
 - The homepage is built from reusable server components and the supplied public image assets; CTA links are static until authentication is implemented in Feature 02.
 - Auth uses `@insforge/sdk/ssr`, the supported SSR entry point in the current InsForge SDK. Next.js 16 protects routes with `proxy.ts` and refreshes sessions with InsForge's `updateSession()` helper.
 - OAuth begins in a Server Action so the PKCE verifier remains in an httpOnly cookie. The `/callback` route exchanges the InsForge code, persists the session cookies, and redirects to `/dashboard`.
+- A minimal protected dashboard landing exists until the full dashboard UI is built in Feature 14, preventing post-login navigation from reaching a missing route.
 
 ---
 

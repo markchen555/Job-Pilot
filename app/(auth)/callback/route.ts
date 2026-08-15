@@ -14,21 +14,28 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(loginUrl(request));
   }
 
-  const response = NextResponse.redirect(new URL("/dashboard", request.url));
-  const auth = createAuthActions({
-    requestCookies: request.cookies,
-    responseCookies: response.cookies,
-  });
-  const { error } = await auth.exchangeOAuthCode(code, codeVerifier);
+  try {
+    const response = NextResponse.redirect(new URL("/dashboard", request.url));
+    const auth = createAuthActions({
+      requestCookies: request.cookies,
+      responseCookies: response.cookies,
+    });
+    const { error } = await auth.exchangeOAuthCode(code, codeVerifier);
 
-  response.cookies.delete(OAUTH_CODE_VERIFIER_COOKIE);
+    response.cookies.delete(OAUTH_CODE_VERIFIER_COOKIE);
 
-  if (error) {
+    if (!error) {
+      return response;
+    }
+
     console.error("[oauthCallback] Unable to exchange OAuth code", error);
     const errorResponse = NextResponse.redirect(loginUrl(request));
     errorResponse.cookies.delete(OAUTH_CODE_VERIFIER_COOKIE);
     return errorResponse;
+  } catch (error) {
+    console.error("[oauthCallback] Unexpected OAuth callback error", error);
+    const errorResponse = NextResponse.redirect(loginUrl(request));
+    errorResponse.cookies.delete(OAUTH_CODE_VERIFIER_COOKIE);
+    return errorResponse;
   }
-
-  return response;
 }

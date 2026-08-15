@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import { startOAuth } from "@/actions/auth";
@@ -13,6 +14,7 @@ const providers: Array<{ label: string; provider: OAuthProvider }> = [
 ];
 
 export function LoginForm() {
+  const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
   const [submittingProvider, setSubmittingProvider] =
     useState<OAuthProvider | null>(null);
@@ -32,9 +34,16 @@ export function LoginForm() {
     setSubmittingProvider(null);
   };
 
+  const callbackError = searchParams.get("auth_error") === "oauth";
+  const visibleError =
+    error ??
+    (callbackError
+      ? "Your sign-in session expired or was rejected. Please try again."
+      : null);
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-6 py-12">
-      <section className="w-full max-w-md border border-border bg-surface p-8 shadow-[0_18px_23px_color-mix(in_srgb,var(--color-text-primary)_8%,transparent)] sm:p-10">
+      <section className="w-full max-w-md rounded-lg border border-border bg-surface p-6 shadow-sm sm:p-8">
         <Image
           alt="JobPilot"
           className="h-10 w-auto"
@@ -72,9 +81,9 @@ export function LoginForm() {
           })}
         </div>
 
-        {error ? (
+        {visibleError ? (
           <p className="mt-5 border border-error bg-surface-muted px-4 py-3 text-sm text-text-primary" role="alert">
-            {error}
+            {visibleError}
           </p>
         ) : null}
 
