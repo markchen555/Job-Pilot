@@ -7,8 +7,8 @@ Update this file after every completed feature. Any AI agent reading this should
 ## Current Status
 
 **Phase:** Phase 1 — Foundation
-**Last completed:** 01 Homepage
-**Next:** 02 Auth
+**Last completed:** 02 Auth
+**Next:** 03 PostHog Initialization
 
 ---
 
@@ -17,7 +17,7 @@ Update this file after every completed feature. Any AI agent reading this should
 ### Phase 1 — Foundation
 
 - [x] 01 Homepage
-- [ ] 02 Auth
+- [x] 02 Auth
 - [ ] 03 PostHog Initialization
 - [ ] 04 Database Schema
 
@@ -51,9 +51,12 @@ Update this file after every completed feature. Any AI agent reading this should
 ## Decisions Made During Build
 
 - The homepage is built from reusable server components and the supplied public image assets; CTA links are static until authentication is implemented in Feature 02.
+- Auth uses `@insforge/sdk/ssr`, the supported SSR entry point in the current InsForge SDK. Next.js 16 protects routes with `proxy.ts` and refreshes sessions with InsForge's `updateSession()` helper.
+- OAuth begins in a Server Action so the PKCE verifier remains in an httpOnly cookie. The `/callback` route exchanges the InsForge code, persists the session cookies, and redirects to `/dashboard`.
 
 ---
 
 ## Notes
 
 - Verified with Node.js 20.20.2 via `nvm use default`: ESLint and the production build pass.
+- InsForge dashboard setup is still required before OAuth can be used end-to-end: enable Google and GitHub, configure their provider credentials, and register the deployed `/callback` URL (plus `http://localhost:3000/callback` for local development) as allowed redirect URLs.

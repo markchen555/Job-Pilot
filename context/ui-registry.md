@@ -112,3 +112,22 @@ Last updated: 2026-07-30
 | Accent usage | `hover:text-accent` |
 
 **Pattern notes:** Site chrome uses a full-width white surface, token border, `max-w-[1440px]` centered content, and 24px horizontal padding.
+
+### OAuth login form
+
+File: components/auth/LoginForm.tsx
+Last updated: 2026-08-14
+
+| Property | Class |
+| --- | --- |
+| Background | `bg-background`, `bg-surface` |
+| Border | `border border-border` |
+| Border radius | none — authentication panels retain the editorial square silhouette |
+| Text — primary | `text-text-slate`, `text-text-primary` |
+| Text — secondary | `text-text-secondary` |
+| Spacing | `px-6 py-12`, `p-8 sm:p-10`, `mt-8`, `space-y-3` |
+| Hover state | `hover:bg-surface-secondary`, `disabled:opacity-60` |
+| Shadow | token-derived `shadow-[0_18px_23px_color-mix(in_srgb,var(--color-text-primary)_8%,transparent)]` |
+| Accent usage | `text-accent` eyebrow |
+
+**Pattern notes:** Authentication uses a centered, square white panel on the page background. Provider actions are full-width outlined buttons with token-colored iconography and a subtle secondary-surface hover state.
