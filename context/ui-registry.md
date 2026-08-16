@@ -150,3 +150,22 @@ Last updated: 2026-08-14
 | Accent usage | `text-accent` eyebrow |
 
 **Pattern notes:** Until the full dashboard arrives in Feature 14, the protected landing destination uses the standard card treatment and routes the newly authenticated user toward profile completion.
+
+### PostHog identity boundary
+
+File: components/analytics/PostHogIdentify.tsx
+Last updated: 2026-08-15
+
+| Property | Class |
+| --- | --- |
+| Background | none |
+| Border | none |
+| Border radius | none |
+| Text — primary | none |
+| Text — secondary | none |
+| Spacing | none |
+| Hover state | none |
+| Shadow | none |
+| Accent usage | none |
+
+**Pattern notes:** This client-only boundary renders no UI. The root layout mounts it only for an authenticated user so PostHog events share the InsForge user ID.

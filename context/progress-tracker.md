@@ -7,8 +7,8 @@ Update this file after every completed feature. Any AI agent reading this should
 ## Current Status
 
 **Phase:** Phase 1 — Foundation
-**Last completed:** 02 Auth
-**Next:** 03 PostHog Initialization
+**Last completed:** 03 PostHog Initialization
+**Next:** 04 Database Schema
 
 ---
 
@@ -18,7 +18,7 @@ Update this file after every completed feature. Any AI agent reading this should
 
 - [x] 01 Homepage
 - [x] 02 Auth
-- [ ] 03 PostHog Initialization
+- [x] 03 PostHog Initialization
 - [ ] 04 Database Schema
 
 ### Phase 2 — Profile Page
@@ -54,6 +54,7 @@ Update this file after every completed feature. Any AI agent reading this should
 - Auth uses `@insforge/sdk/ssr`, the supported SSR entry point in the current InsForge SDK. Next.js 16 protects routes with `proxy.ts` and refreshes sessions with InsForge's `updateSession()` helper.
 - OAuth begins in a Server Action so the PKCE verifier remains in an httpOnly cookie. The `/callback` route exchanges the InsForge code, persists the session cookies, and redirects to `/dashboard`.
 - A minimal protected dashboard landing exists until the full dashboard UI is built in Feature 14, preventing post-login navigation from reaching a missing route.
+- PostHog initializes through `instrumentation-client.ts`, identifies authenticated InsForge users in the root layout, and provides typed browser/server capture helpers for the four documented product events. Server captures flush immediately for API routes.
 
 ---
 

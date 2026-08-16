@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import posthog from "posthog-js";
 
 import { startOAuth } from "@/actions/auth";
 
@@ -22,6 +23,7 @@ export function LoginForm() {
   const handleSignIn = async (provider: OAuthProvider) => {
     setError(null);
     setSubmittingProvider(provider);
+    posthog.capture("oauth_sign_in_started", { oauth_provider: provider });
 
     const result = await startOAuth(provider);
 
